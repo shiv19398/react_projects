@@ -1,0 +1,32 @@
+[
+  {
+    "sortCode": "11-22-33",
+    "accountNumber": "123456782",
+    "accountType": "Savings Account",
+    "accountName": "GS Kumar"
+  },
+  {
+    "sortCode": "89-45-54",
+    "accountNumber": "489127491",
+    "accountType": "Savings Account",
+    "accountName": "Atul Kumar"
+  },
+  {
+    "sortCode": "22-33-44",
+    "accountNumber": "345678120",
+    "accountType": "Savings Account",
+    "accountName": "Rahul Kumar"
+  },
+  {
+    "sortCode": "87-63-27",
+    "accountNumber": "874987867",
+    "accountType": "Savings Account",
+    "accountName": "John "
+  },
+  {
+    "sortCode": "59-28-59",
+    "accountNumber": "657383473",
+    "accountType": "Savings Account",
+    "accountName": "Anubhav Singh"
+  }
+]
