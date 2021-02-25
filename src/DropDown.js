@@ -4,27 +4,41 @@ import { Box, Flex, Heading, Image } from "rebass";
 import data from "./Data/Bank_data.json";
 import green_tick from "./Images/green-tick.png";
 
-const customStyles = {
-  option: (provided, state) => {
-    return { ...provided, color: state.isSelected ? "red" : "black" };
-  },
+const CustomSingleValue = ({
+  cx,
+  getStyles,
+  selectProps,
+  data,
+  isDisabled,
+  className,
+  ...props
+}) => {
+  const { sortCode, accountName, accountNumber, accountType } = data.value;
+  return (
+    <div>
+      <div>{`${sortCode}    ${accountNumber}`}</div>
+      <div>{`${accountType}-${accountName}`}</div>
+    </div>
+  );
 };
 
 const options = data.map((customer) => {
+  const { sortCode, accountNumber, accountType, accountName } = customer;
   return {
     value: customer,
-    label: `${customer.sortCode} ${customer.accountNumber} ${customer.accountType} ${customer.accountName} `,
+    label: `${sortCode} ${accountNumber} ${accountType} ${accountName} `,
   };
 });
 
 const CustomOption = (props) => {
+  console.log(props.label);
   return props.isSelected ? (
     <div>
       <label>{props.label}</label>
       <Image
         src={green_tick}
         sx={{
-          width: ["4%"],
+          width: ["2%"],
         }}
       ></Image>
     </div>
@@ -37,17 +51,20 @@ const DropDown = () => {
   return (
     <>
       <Flex>
-        <Box p={3} width={1 / 2} color="black" bg="primary">
+        <Box ml={3} p={3} width={1 / 2} color="black" bg="primary">
           <Heading fontSize={40} color="black" textAlign="center">
             Select Account
           </Heading>
           <br />
           <Select
-            styles={customStyles}
-            components={{ Option: CustomOption }}
+            components={{
+              Option: CustomOption,
+              SingleValue: CustomSingleValue,
+            }}
             options={options}
             onChange={(e) => {
               console.log(e.value);
+              // console.log(selectedAccount);
             }}
           ></Select>
         </Box>
